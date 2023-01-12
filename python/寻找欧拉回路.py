@@ -69,8 +69,9 @@ def is_bridge(G, u, v):
 # create a graph with 5 nodes and 7 edges
 G = nx.Graph()
 G.add_edges_from([(0, 1), (1, 2), (2, 3), (3, 4), (4, 0), (2, 0), (0, 3), (3, 1), (1, 4), (4, 2)])
+G1 = G.copy()
 
 # find the Eulerian path starting at node 0
 path = fleury(G, 0)
 print(path)
-plot_graph(G)
+plot_graph(G1)
