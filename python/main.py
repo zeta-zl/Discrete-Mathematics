@@ -212,7 +212,6 @@ def show_weighted_graph(G):
     plt.show()
 
 
-# 获得最小生成树
 def minimum_spanning_tree(G):
     """
     返回最小生成树。
@@ -224,7 +223,7 @@ def minimum_spanning_tree(G):
     一个networkx中的最小生成树图对象
     """
     # 计算最小生成树
-    mst = nx.minimum_spanning_tree(G)
+    mst = nx.minimum_spanning_tree(G, algorithm="kruskal")
 
     # 返回最小生成树
     return mst
@@ -439,9 +438,10 @@ def get_coordinates(G):
 
 
 def operator():
-    G = graph_with_weight()
-    minG = minimum_spanning_tree(G)
-    show_subgraph(G, minG)
+    degree = [3, 3, 3, 3, 3, 3]
+    G = generate_simple_graph(degree)  # 通过度序列得到简单图
+    pos = get_coordinates(G)
+    plot_graph(G, pos=pos)
 
 
 if __name__ == "__main__":
